@@ -45,19 +45,15 @@ class MainActivity : AppCompatActivity() {
                     1 -> {
                         binding.bottomNavi.menu.findItem(R.id.search).isChecked = true
                     }
-
                     2 -> {
                         binding.bottomNavi.menu.findItem(R.id.add).isChecked = true
                     }
-
                     3 -> {
                         binding.bottomNavi.menu.findItem(R.id.reels).isChecked = true
                     }
-
                     4 -> {
                         binding.bottomNavi.menu.findItem(R.id.setting).isChecked = true
                     }
-
                     else -> {
                         binding.bottomNavi.menu.findItem(R.id.home).isChecked = true
                     }

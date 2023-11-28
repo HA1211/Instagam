@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.login.setOnClickListener {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
         }
 
         binding.forgot.setOnClickListener {

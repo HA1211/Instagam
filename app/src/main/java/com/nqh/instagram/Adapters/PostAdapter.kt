@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.nqh.instagram.PostModel
 import com.nqh.instagram.R
-import com.nqh.instagram.databinding.FragmentHomeBinding
 
 class PostAdapter(
-    private var listData: List<String>
+    private var listData: List<PostModel>
 ) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {  //bắt sự kiện quản lý từng thành phần view
@@ -23,7 +23,7 @@ class PostAdapter(
 
     override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) { //duyệt tuần tự , không phụ thuôc dữ liệu đầu vào, không truy
         val item = listData[position]
-        holder.tvHome.text = item
+        holder.tvHome.text = item.name
     }
 
     override fun getItemCount(): Int {
