@@ -1,8 +1,7 @@
-package com.nqh.instagram.ui
+package com.nqh.instagram.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.nqh.instagram.databinding.ActivityBirthBinding
 import com.nqh.instagram.databinding.ActivityPhoneNumberBinding
 
 class PhoneNumberActivity : AppCompatActivity() {

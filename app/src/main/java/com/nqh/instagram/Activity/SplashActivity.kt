@@ -1,4 +1,4 @@
-package com.nqh.instagram.ui
+package com.nqh.instagram.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +15,6 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this@SplashActivity, LoginActivity ::class.java))
         }, 500L)
-
         onBackPressed()
     }
 

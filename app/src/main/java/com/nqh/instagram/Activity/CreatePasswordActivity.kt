@@ -1,17 +1,17 @@
-package com.nqh.instagram.ui
+package com.nqh.instagram.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.nqh.instagram.databinding.ActivityCreateNameBinding
+import com.nqh.instagram.databinding.ActivityCreatePasswordBinding
 
-class CreateNameActivity : AppCompatActivity() {
+class CreatePasswordActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityCreateNameBinding
+    lateinit var binding: ActivityCreatePasswordBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCreateNameBinding.inflate(layoutInflater)
+        binding = ActivityCreatePasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.back.setOnClickListener {
@@ -19,7 +19,7 @@ class CreateNameActivity : AppCompatActivity() {
         }
 
         binding.next.setOnClickListener {
-            startActivity(Intent(this@CreateNameActivity, CreatePasswordActivity::class.java))
+            startActivity(Intent(this@CreatePasswordActivity, SaveInfoActivity::class.java))
         }
 
     }

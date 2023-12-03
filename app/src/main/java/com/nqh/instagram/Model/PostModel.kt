@@ -1,4 +1,4 @@
-package com.nqh.instagram
+package com.nqh.instagram.Model
 
 class PostModel (
     val idPost: String,

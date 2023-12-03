@@ -1,4 +1,4 @@
-package com.nqh.instagram.ui
+package com.nqh.instagram.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

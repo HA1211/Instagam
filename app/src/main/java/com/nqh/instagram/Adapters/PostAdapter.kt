@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.nqh.instagram.PostModel
+import com.nqh.instagram.Model.PostModel
 import com.nqh.instagram.R
 
 class PostAdapter(

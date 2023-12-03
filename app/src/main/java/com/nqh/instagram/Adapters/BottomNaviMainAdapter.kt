@@ -3,11 +3,11 @@ package com.nqh.instagram.Adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.nqh.instagram.Fragments.SettingFragment
-import com.nqh.instagram.Fragments.AddFragment
-import com.nqh.instagram.Fragments.HomeFragment
-import com.nqh.instagram.Fragments.ReelsFragment
-import com.nqh.instagram.Fragments.SearchFragment
+import com.nqh.instagram.Fragment.SettingFragment
+import com.nqh.instagram.Fragment.AddFragment
+import com.nqh.instagram.Fragment.HomeFragment
+import com.nqh.instagram.Fragment.ReelsFragment
+import com.nqh.instagram.Fragment.SearchFragment
 
 class BottomNaviMainAdapter(
     private val fm : FragmentManager, private val count : Int
