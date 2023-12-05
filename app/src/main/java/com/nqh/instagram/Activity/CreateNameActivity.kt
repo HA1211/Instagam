@@ -3,6 +3,7 @@ package com.nqh.instagram.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.nqh.instagram.Adapters.BottomNaviSettingAdapter
 import com.nqh.instagram.databinding.ActivityCreateNameBinding
 
 class CreateNameActivity : AppCompatActivity() {
@@ -21,6 +22,5 @@ class CreateNameActivity : AppCompatActivity() {
         binding.next.setOnClickListener {
             startActivity(Intent(this@CreateNameActivity, CreatePasswordActivity::class.java))
         }
-
     }
 }

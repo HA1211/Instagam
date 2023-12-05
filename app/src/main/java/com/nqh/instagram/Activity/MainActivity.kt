@@ -1,9 +1,16 @@
 package com.nqh.instagram.Activity
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.nqh.instagram.Adapters.BottomNaviMainAdapter
+import com.nqh.instagram.Fragment.AddFragment
+import com.nqh.instagram.Fragment.HomeFragment
+import com.nqh.instagram.Fragment.ReelsFragment
+import com.nqh.instagram.Fragment.SearchFragment
+import com.nqh.instagram.Fragment.SettingFragment
 import com.nqh.instagram.R
 import com.nqh.instagram.databinding.ActivityMainBinding
 
@@ -15,19 +22,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(HomeFragment())
 
-        binding.bottomNavi.setOnNavigationItemSelectedListener { item ->
+        binding.bottomNavi.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.search -> binding.vpgMain.currentItem = 1
-                R.id.add -> binding.vpgMain.currentItem = 2
-                R.id.reels -> binding.vpgMain.currentItem = 3
-                R.id.setting -> binding.vpgMain.currentItem = 4
-                else -> binding.vpgMain.currentItem = 0
+                R.id.search -> {
+                    replaceFragment(SearchFragment())
+                }
+                R.id.add -> {
+                    replaceFragment(AddFragment())
+                }
+                R.id.reels -> {
+                    replaceFragment(ReelsFragment())
+                }
+                R.id.setting -> {
+                    replaceFragment(SettingFragment())
+                }
+                else -> {
+                    replaceFragment(HomeFragment())
+                }
             }
             true
         }
 
-        val adapter = BottomNaviMainAdapter(supportFragmentManager, 5)
+        /*val adapter = BottomNaviMainAdapter(supportFragmentManager, 5)
 
         binding.vpgMain.adapter = adapter
 
@@ -63,6 +81,11 @@ class MainActivity : AppCompatActivity() {
             override fun onPageScrollStateChanged(state: Int) {
 
             }
-        })
+        })*/
+    }
+    fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.framelayout_main, fragment)
+        fragmentTransaction.commit()
     }
 }
