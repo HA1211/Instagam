@@ -84,14 +84,14 @@
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navi_setting"
+        android:id="@+id/bottomNaviSetting"
         android:layout_width="match_parent"
         android:layout_marginTop="20dp"
         android:layout_height="50dp"
         app:menu="@menu/menu_bottom_nav_setting"/>
 
-    <FrameLayout
-        android:id="@+id/container_setting"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpg_setting"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
