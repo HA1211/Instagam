@@ -1,15 +1,17 @@
 package com.nqh.instagram.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.nqh.instagram.Activity.PostDetailActivity
 import com.nqh.instagram.Adapters.PostAdapter
+import com.nqh.instagram.Model.InterfaceModel
 import com.nqh.instagram.Model.PostModel
 import com.nqh.instagram.RetrofitClient
-import com.nqh.instagram.UserService
 import com.nqh.instagram.databinding.FragmentHomeBinding
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -34,33 +36,41 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val listString = listOf<PostModel>(
-            PostModel("", "", "Hiep 1", ""),
-            PostModel("", "", "Hiep 2", ""),
-            PostModel("", "", "Hiep 3", ""),
-            PostModel("", "", "Hiep 4", ""),
-            PostModel("", "", "Hiep 5", ""),
-            PostModel("", "", "Hiep 5", ""),
-            PostModel("", "", "Hiep 5", ""),
-            PostModel("", "", "Hiep 5", ""),
-            PostModel("", "", "Hiep 5", ""),
+
+
+            PostModel("", "", "Hiep 1", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 2", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 3", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 4", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 5", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 5", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 5", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 5", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
+            PostModel("", "", "Hiep 5", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
             PostModel("", "", "Hiep 6", "")
         )
-        val adapter = PostAdapter(listString)
-        binding.rcyNews.adapter = adapter
 
         val call = RetrofitClient.apiInterface.getData()
-        call.enqueue(object : Callback<List<UserService>> {
+        call.enqueue(object : Callback<List<PostModel>> {
             override fun onResponse(
-                call: Call<List<UserService>>,
-                response: Response<List<UserService>>
+                call: Call<List<PostModel>>,
+                response: Response<List<PostModel>>
             ) {
 
-                val data : List<UserService> = response.body() as List<UserService>
+                val data : List<PostModel> = response.body() as List<PostModel>
+
+                val adapter = PostAdapter(data, requireContext(), object : InterfaceModel{
+                    override fun click(postModel: PostModel) {
+                        startActivity(Intent(requireContext(), PostDetailActivity::class.java))
+                    }
+
+                })
+                binding.rcyNews.adapter = adapter
 
                 Log.d("hiep", "data: " + data.size)
             }
 
-            override fun onFailure(call: Call<List<UserService>>, t: Throwable) {
+            override fun onFailure(call: Call<List<PostModel>>, t: Throwable) {
                 Log.d("hiep", "khong call dc")
                 t.printStackTrace()
             }
