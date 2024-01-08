@@ -9,13 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.nqh.instagram.Activity.PostDetailActivity
 import com.nqh.instagram.Adapters.PostAdapter
-import com.nqh.instagram.Model.InterfaceModel
-import com.nqh.instagram.Model.PostModel
+import com.nqh.instagram.model.InterfaceModel
+import com.nqh.instagram.model.PostModel
 import com.nqh.instagram.RetrofitClient
 import com.nqh.instagram.databinding.FragmentHomeBinding
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody.Companion.toRequestBody
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +32,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listString = listOf<PostModel>(
+        /*val listString = listOf<PostModel>(
 
 
             PostModel("", "", "Hiep 1", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
@@ -48,7 +45,7 @@ class HomeFragment : Fragment() {
             PostModel("", "", "Hiep 5", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
             PostModel("", "", "Hiep 5", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
             PostModel("", "", "Hiep 6", "")
-        )
+        )*/
 
         val call = RetrofitClient.apiInterface.getData()
         call.enqueue(object : Callback<List<PostModel>> {
@@ -67,11 +64,10 @@ class HomeFragment : Fragment() {
                 })
                 binding.rcyNews.adapter = adapter
 
-                Log.d("hiep", "data: " + data.size)
             }
 
             override fun onFailure(call: Call<List<PostModel>>, t: Throwable) {
-                Log.d("hiep", "khong call dc")
+                Log.d("hiep", "onFailure")
                 t.printStackTrace()
             }
         })

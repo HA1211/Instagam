@@ -1,8 +1,8 @@
-package com.nqh.instagram.Model
+package com.nqh.instagram.model
 
 data class PostModel (
     val id: String,
-    val avt: String,
+    val avatar: String,
     val name: String,
     val url: String
 ){

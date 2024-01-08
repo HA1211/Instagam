@@ -1,19 +1,16 @@
 package com.nqh.instagram
 
-import com.nqh.instagram.Model.PostModel
-import okhttp3.RequestBody
+import com.nqh.instagram.model.PostModel
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.POST
 
 interface ApiInterface {
 
-    @GET("tuvi")
+    @GET("test")
     fun getData() : Call<List<PostModel>>
-
-    @POST("tuvi")
+/*
+    @POST("test")
     fun addNewUser(
         @Body requestBody: RequestBody
-    ) : Call<PostModel>
+    ) : Call<PostModel>*/
 }
