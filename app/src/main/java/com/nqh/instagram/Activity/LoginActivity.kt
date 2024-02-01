@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, ForgotPasswordActivity::class.java))
         }
 
-        binding.newaccount.setOnClickListener {
+        binding.newacc.setOnClickListener {
             startActivity(Intent(this@LoginActivity, CreateNameActivity::class.java))
         }
     }

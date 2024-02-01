@@ -17,7 +17,7 @@ class PictureFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_picture, container, false)
     }
 
-    override fun onViewCreated(){
+    /*override fun onViewCreated(){
 
-    }
+    }*/
 }

@@ -79,7 +79,7 @@
 
 
     <TextView
-        android:id="@+id/new_account"
+        android:id="@+id/newacc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
