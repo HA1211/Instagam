@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
 
         /*val listString = listOf<PostModel>(
 
-
             PostModel("", "", "Hiep 1", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
             PostModel("", "", "Hiep 2", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
             PostModel("", "", "Hiep 3", "https://zipoapps-storage-battery-charging-animation.nyc3.cdn.digitaloceanspaces.com/animations/new/new19.jpeg"),
@@ -49,18 +48,13 @@ class HomeFragment : Fragment() {
 
         val call = RetrofitClient.apiInterface.getData()
         call.enqueue(object : Callback<List<PostModel>> {
-            override fun onResponse(
-                call: Call<List<PostModel>>,
-                response: Response<List<PostModel>>
-            ) {
-
+            override fun onResponse(call: Call<List<PostModel>>,response: Response<List<PostModel>>) {
                 val data : List<PostModel> = response.body() as List<PostModel>
 
                 val adapter = PostAdapter(data, requireContext(), object : InterfaceModel{
                     override fun click(postModel: PostModel) {
                         startActivity(Intent(requireContext(), PostDetailActivity::class.java))
                     }
-
                 })
                 binding.rcyNews.adapter = adapter
 
@@ -74,12 +68,8 @@ class HomeFragment : Fragment() {
 
         /*val json = JSONObject()
 
-        json.put(
-            "name",
-            "hiep")
-        json.put(
-            "avatar",
-            "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/357.jpg"
+        json.put("name", "hiep")
+        json.put("avatar", "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/357.jpg"
         )
 
         val requestBody = json.toString().toRequestBody("application/json".toMediaTypeOrNull())
