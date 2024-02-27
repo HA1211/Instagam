@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.newacc.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, CreateNameActivity::class.java))
+            startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
         }
     }
 
