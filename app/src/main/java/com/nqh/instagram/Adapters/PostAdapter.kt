@@ -30,6 +30,10 @@ class PostAdapter(
         return ViewHolder(view)
     }
 
+    override fun getItemCount(): Int {
+        return listData.size
+    }
+
     override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) { //duyệt tuần tự, không phụ thuôc dữ liệu đầu vào
         val item = listData[position]
         Glide.with(context).asBitmap().load(item.avatar).into(holder.img_home) //load cái gì, đổ vào(into) cái gì
@@ -42,10 +46,6 @@ class PostAdapter(
         holder.view_all.setOnClickListener{
 
         }
-    }
-
-    override fun getItemCount(): Int {
-        return listData.size
     }
 }
 

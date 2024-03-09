@@ -21,7 +21,6 @@ object RetrofitClient {
             .baseUrl("https://6567404664fcff8d7310095b.mockapi.io/")
             .client(okHttpClient.build())
             .addConverterFactory(GsonConverterFactory.create())
-
     }
 
     val apiInterface: ApiInterface by lazy {

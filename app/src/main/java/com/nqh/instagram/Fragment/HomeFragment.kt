@@ -3,16 +3,20 @@ package com.nqh.instagram.Fragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.nqh.instagram.Activity.PostDetailActivity
+import com.nqh.instagram.Activity.StoryDetailActivity
 import com.nqh.instagram.Adapters.PostAdapter
-import com.nqh.instagram.model.InterfaceModel
-import com.nqh.instagram.model.PostModel
+import com.nqh.instagram.Adapters.StoryAdapter
 import com.nqh.instagram.RetrofitClient
 import com.nqh.instagram.databinding.FragmentHomeBinding
+import com.nqh.instagram.model.ClickStoryInterface
+import com.nqh.instagram.model.InterfaceModel
+import com.nqh.instagram.model.PostModel
+import com.nqh.instagram.model.StoryModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,15 +52,25 @@ class HomeFragment : Fragment() {
 
         val call = RetrofitClient.apiInterface.getData()
         call.enqueue(object : Callback<List<PostModel>> {
-            override fun onResponse(call: Call<List<PostModel>>,response: Response<List<PostModel>>) {
-                val data : List<PostModel> = response.body() as List<PostModel>
+            override fun onResponse(
+                call: Call<List<PostModel>>,
+                response: Response<List<PostModel>>
+            ) {
+                val data: List<PostModel> = response.body() as List<PostModel>
 
-                val adapter = PostAdapter(data, requireContext(), object : InterfaceModel{
+                val adapterNews = PostAdapter(data, requireContext(), object : InterfaceModel {
                     override fun click(postModel: PostModel) {
                         startActivity(Intent(requireContext(), PostDetailActivity::class.java))
                     }
                 })
-                binding.rcyNews.adapter = adapter
+                binding.rcyNews.adapter = adapterNews
+
+                val adapterStory = StoryAdapter(data, requireContext(), object : InterfaceModel {
+                    override fun click(postModel: PostModel) {
+                        startActivity(Intent(requireContext(), StoryDetailActivity::class.java))
+                    }
+                })
+                binding.rcyStory.adapter = adapterStory
 
             }
 
@@ -86,6 +100,30 @@ class HomeFragment : Fragment() {
             override fun onFailure(call: Call<UserService>, t: Throwable) {
                 Log.d("hiep", "onFailure")
             }
+        })*/
+
+        /*val call2 = RetrofitClient.apiInterface.getData2()
+        call2.enqueue(object : Callback<List<StoryModel>> {
+            override fun onResponse(
+                call: Call<List<StoryModel>>,
+                response: Response<List<StoryModel>>
+            ) {
+                val data2: List<StoryModel> = response.body() as List<StoryModel>
+
+                val adapter2 = StoryAdapter(data2, requireContext(), object : ClickStoryInterface {
+                    override fun clickStory(storyModel: StoryModel) {
+                        startActivity(Intent(requireContext(), StoryDetailActivity::class.java))
+                    }
+                })
+                binding.rcyStory.adapter = adapter2
+
+            }
+
+            override fun onFailure(call: Call<List<StoryModel>>, t: Throwable) {
+                Log.d("hiep", "onFailureStoryModel")
+                t.printStackTrace()
+            }
+
         })*/
     }
 }

@@ -45,7 +45,10 @@
             android:id="@+id/rcy_story"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="1"
+            tools:listitem="@layout/item_story"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcy_news"
