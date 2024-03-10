@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import com.nqh.instagram.Adapters.BottomNaviMainAdapter
 import com.nqh.instagram.Fragment.AddFragment
 import com.nqh.instagram.Fragment.HomeFragment
@@ -50,4 +51,6 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.framelayout_main, fragment)
         fragmentTransaction.commit()
     }
+
+
 }

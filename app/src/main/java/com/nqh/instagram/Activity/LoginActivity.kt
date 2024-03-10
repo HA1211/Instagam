@@ -44,15 +44,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signInUser(
-        email: String = binding.etEmailSignIn.text.toString().trim { it <= ' '},
-        password: String = binding.etPasswordSignIn.text.toString().trim { it <= ' '}
-    ){
-        if(checkEmpty(email, password)){
-            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){task ->
-                if(task.isSuccessful){
+        email: String = binding.etEmailSignIn.text.toString().trim { it <= ' ' },
+        password: String = binding.etPasswordSignIn.text.toString().trim { it <= ' ' }
+    ) {
+        if (checkEmpty(email, password)) {
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
                     FirestoreClass().signInUser(this)
                     startActivity(Intent(this, MainActivity::class.java))
-                }else {
+                } else {
                     Log.w("hiep", "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,
@@ -66,16 +66,19 @@ class LoginActivity : AppCompatActivity() {
 
     fun checkEmpty(
         email: String, password: String
-    ): Boolean{
-        return when{
+    ): Boolean {
+        return when {
             TextUtils.isEmpty(email) -> {
                 Toast.makeText(this, "Please enter your email", Toast.LENGTH_LONG).show()
                 false
             }
+
             TextUtils.isEmpty(password) -> {
                 Toast.makeText(this, "Please enter your password", Toast.LENGTH_LONG).show()
                 false
-            }else -> {
+            }
+
+            else -> {
                 true
             }
         }
